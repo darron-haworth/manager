@@ -6,11 +6,11 @@ import { Card, CardSection, Input, Button, Spinner } from './common';
 
 class LoginForm extends Component {
     onEmailChange(text) {
-        this.props.emailChanged(text);
+        this.props.emailChanged(text.trim());
     }
 
     onPasswordChange(text) {
-        this.props.passwordChanged(text);
+        this.props.passwordChanged(text.trim());
     }
 
     onButtonPress() {
@@ -41,7 +41,7 @@ class LoginForm extends Component {
                         placeholder="email@gmail.com"
                         onChangeText={this.onEmailChange.bind(this)}
                         value={this.props.email}
-                        />
+                    />
                 </CardSection>
 
                 <CardSection>
@@ -51,7 +51,7 @@ class LoginForm extends Component {
                         placeholder="password"
                         onChangeText={this.onPasswordChange.bind(this)}
                         value={this.props.password}
-                        />
+                    />
                 </CardSection>
 
                 <Text style={styles.errorTextStyle}>
