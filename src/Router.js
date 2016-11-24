@@ -6,6 +6,7 @@ const RouterComponent = () => {
     return (
         <Router>
             <Scene
+                sceneStyle={{ paddingTop: 65 }}
                 key="login" 
                 component={LoginForm} 
                 title="Please Login"
