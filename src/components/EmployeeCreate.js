@@ -24,7 +24,6 @@ class EmployeeCreate extends Component {
                     <Text>Picker</Text>
                  </CardSection>
 
-
                 <CardSection>
                     <Button>
                         Create
