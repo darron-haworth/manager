@@ -1,5 +1,5 @@
 {
-  "name": "manager",
+  "name": "fprnmanager",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,15 +7,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "firebase": "^3.6.1",
-    "lodash": "^4.17.2",
+    "firebase": "3.6.1",
+    "lodash": "4.17.2",
     "react": "15.3.2",
     "react-native": "0.37.0",
-    "react-native-router-flux": "^3.35.0",
-    "react-redux": "^4.4.6",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0",
-    "whatwg-fetch": "^2.0.1"
+    "react-native-router-flux": "3.35.0",
+    "react-redux": "4.4.6",
+    "redux": "3.6.0",
+    "redux-thunk": "2.1.0",
+    "whatwg-fetch": "^.0.1"
   },
   "jest": {
     "preset": "jest-react-native"

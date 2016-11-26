@@ -1,4 +1,4 @@
-package com.manager;
+package com.fprnmanager;
 
 import android.app.Application;
 import android.util.Log;
