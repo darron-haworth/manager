@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Picker } from 'react-native';
+import { Picker, Text, View } from 'react-native';
 import { employeeUpdate } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
@@ -18,7 +18,7 @@ class EmployeeCreate extends Component {
                     />
                 </CardSection>
 
-                <CardSection>
+                <CardSection>                
                  <Input
                     label="Phone"
                     placeholder="555-555-1212"
@@ -27,9 +27,12 @@ class EmployeeCreate extends Component {
                  />
                  </CardSection>
 
+
                  <CardSection>
+                    <View style={{ flex: 1, flexDirection: 'column' }}>
+                    <Text style={styles.pickerTextStyle}>Select a Shift</Text>
                     <Picker
-                        style={{ flex: 1 }}
+                        
                         selectedValue={this.props.shift}
                         onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
                     >
@@ -39,19 +42,29 @@ class EmployeeCreate extends Component {
                         <Picker.Item label="Thursday" value="Thursday" />
                         <Picker.Item label="Friday" value="Friday" />
                         <Picker.Item label="Saturday" value="Saturday" />
-                        <Picker.Item label="Sunday" value="Sunday" />
+                        <Picker.Item label="Sunday" value="sun" />
                     </Picker>
-                 </CardSection>
+                    </View>
+                    </CardSection>
+          
 
                 <CardSection>
                     <Button>
                         Create
                     </Button>
                 </CardSection>
+
             </Card>
         );
     }
 }
+
+const styles = {
+    pickerTextStyle: {
+        fontSize: 18,
+        paddingLeft: 20
+    }
+};
 
 const mapStateToProps = (state) => {
     const { name, phone, shift } = state.employeeForm;
