@@ -38,7 +38,7 @@ class EmployeeForm extends Component {
                                 }
                                 )}
                         >
-                            <Picker.Item label="Monday" value="Mondeay" />
+                            <Picker.Item label="Monday" value="Monday" />
                             <Picker.Item label="Tuesday" value="Tuesday" />
                             <Picker.Item label="Wednesday" value="Wednesday" />
                             <Picker.Item label="Thursday" value="Thursday" />
