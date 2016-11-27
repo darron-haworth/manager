@@ -1,5 +1,5 @@
 # Example
-![alt tag](https://github.com/darron-haworth/zenderbooks/blob/master/example/ZenderBook.gif?raw=true)
+![alt tag](https://github.com/darron-haworth/manager/blob/master/notes/img/fprnmanagerExample.gif?raw=true)
 
 # fbrnManager
 template based on Udemy course below:
