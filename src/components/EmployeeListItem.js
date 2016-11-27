@@ -6,18 +6,21 @@ import { CardSection } from './common';
 class EmployeeListItem extends Component {
 
     onRowPress() {
-        Actions.employeeCreate();
+        Actions.employeeEdit({ employee: this.props.employee });
     }
 
     render() {
-        const { name } = this.props.employee;
+        const { name, phone } = this.props.employee;
 
         return (
             <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)} >
                 <View>
-                    <CardSection>
+                    <CardSection style={{ justifyContent: 'space-between' }}>
                         <Text style={{ fontSize: 18, paddingLeft: 15 }}>
                             {name}
+                        </Text>
+                        <Text style={{ fontSize: 18, paddingLeft: 15 }}>
+                            {phone}
                         </Text>
                     </CardSection>
                 </View>
