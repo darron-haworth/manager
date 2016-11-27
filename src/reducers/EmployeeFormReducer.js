@@ -20,7 +20,7 @@ export default (state = INITIAL_STATE, action) => {
         case EMPLOYEE_UPDATE:
             // action.payload === { prop: 'name', value: 'jane' }
             // the [] below is not an array, it is 'key interpolation', 
-            // the prop is evaluated as the prop sent it 'name' in this example
+            // action.payload.prop is evaluated @ runtime as the prop sent it 'name' in this example
             return { ...state, [action.payload.prop]: action.payload.value };
         case EMPLOYEE_SAVE_SUCCESS:
             return INITIAL_STATE;
