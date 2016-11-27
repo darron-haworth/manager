@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { text } from 'react-native-communications';
 import { connect } from 'react-redux';
-import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
+import { employeeUpdate, employeeSave, employeeDelete, employeeEditClear } from '../actions';
 import { Card, CardSection, Button, Confirm } from './common';
 import EmployeeForm from './EmployeeForm';
 
@@ -15,6 +15,9 @@ class EmployeeEdit extends Component {
         _.each(this.props.employee, (value, prop) => {
             this.props.employeeUpdate({ prop, value });
         });
+    }
+    componentWillUnmount() {
+            this.props.employeeEditClear();
     }
 
     onButtonPress() {
@@ -62,8 +65,8 @@ class EmployeeEdit extends Component {
                     onAccept={this.onAcceptDeletePress.bind(this)}
                     onDecline={this.onDeclineDeletePress.bind(this)}
                 >
-                    Are you sure you want to fire { `\n${this.props.employee.name}` }?
-                </Confirm>
+                    Are you sure you want to fire{ `\n${this.props.employee.name}` }?
+                </Confirm> 
             </Card>
         );
     }
@@ -76,6 +79,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    employeeUpdate, employeeSave, employeeDelete
+    employeeUpdate, employeeSave, employeeDelete, employeeEditClear
 }
 )(EmployeeEdit);

@@ -6,12 +6,21 @@ import {
     EMPLOYEE_CREATE,
     EMPLOYEES_FETCH_SUCCESS,
     EMPLOYEE_SAVE_SUCCESS,
+    EMPLOYEE_EDIT_CLEAR,
 } from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
     return {
         type: EMPLOYEE_UPDATE,
         payload: { prop, value }
+
+    };
+};
+
+export const employeeEditClear = () => {
+    return {
+        type: EMPLOYEE_EDIT_CLEAR,
+        payload: null
 
     };
 };

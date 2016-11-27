@@ -2,6 +2,7 @@ import {
     EMPLOYEE_UPDATE,
     EMPLOYEE_CREATE,
     EMPLOYEE_SAVE_SUCCESS,
+    EMPLOYEE_EDIT_CLEAR,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -12,6 +13,9 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case EMPLOYEE_EDIT_CLEAR:
+            console.warn('clear');
+            return INITIAL_STATE;
         case EMPLOYEE_CREATE:
             return INITIAL_STATE;
         case EMPLOYEE_UPDATE:
