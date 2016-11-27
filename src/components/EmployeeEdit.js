@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { text } from 'react-native-communications';
 import { connect } from 'react-redux';
-import { employeeUpdate, employeeSave } from '../actions';
+import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
 import { Card, CardSection, Button, Confirm } from './common';
 import EmployeeForm from './EmployeeForm';
 
@@ -25,9 +25,18 @@ class EmployeeEdit extends Component {
         const { phone, shift } = this.props;
         text(phone, `Your upcoming shift is on ${shift}`);
     }
+
+    onAcceptDeletePress() {
+        const { uid } = this.props.employee;
+        this.props.employeeDelete({ uid });
+    }
+
+    onDeclineDeletePress() {
+        this.setState({ showModal: false });
+    }
     render() {
         return (
-            <Card>                
+            <Card>
                 <EmployeeForm {...this.props} />
 
                 <CardSection>
@@ -38,7 +47,7 @@ class EmployeeEdit extends Component {
 
                 <CardSection>
                     <Button onPress={this.onTextPress.bind(this)}>
-                    Text Schedule
+                        Text Schedule
                     </Button>
                 </CardSection>
 
@@ -48,8 +57,12 @@ class EmployeeEdit extends Component {
                     </Button>
                 </CardSection>
 
-                <Confirm visible={this.state.showModal}>
-                    Are you sure you want to delete this?
+                <Confirm
+                    visible={this.state.showModal}
+                    onAccept={this.onAcceptDeletePress.bind(this)}
+                    onDecline={this.onDeclineDeletePress.bind(this)}
+                >
+                    Are you sure you want to fire { `\n${this.props.employee.name}` }?
                 </Confirm>
             </Card>
         );
@@ -63,6 +76,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    employeeUpdate, employeeSave
+    employeeUpdate, employeeSave, employeeDelete
 }
 )(EmployeeEdit);
